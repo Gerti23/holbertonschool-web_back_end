@@ -8,20 +8,20 @@ export default class Pricing {
       return this._amount;
     }
   
-    set amount(newAmount) {
-      this._amount = newAmount;
+    set amount(value) {
+      this._amount = value;
     }
   
     get currency() {
       return this._currency;
     }
   
-    set currency(newCurrency) {
-      this._currency = newCurrency;
+    set currency(value) {
+      this._currency = value;
     }
   
     displayFullPrice() {
-      return `${this._amount} ${this._currency.name} (${this._currency.code})`;
+      return `${this._amount} ${this._currency._name} (${this._currency._code})`;
     }
   
     static convertPrice(amount, conversionRate) {
