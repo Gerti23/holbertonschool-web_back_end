@@ -1,23 +1,38 @@
 #!/usr/bin/env python3
 """
-This module provides a function to create a tuple
-with a string and the square of a number.
+Module for creating multiplier functions.
+
+This module provides a function `make_multiplier`
+that returns another
+function which multiplies a given float by the
+specified multiplier.
 """
-from typing import Union, Tuple
+from typing import Callable
 
 
-def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """
-    Returns a tuple where the first element is the string k,
-    and the second element is the square of the int/float v.
+    Creates a function that multiplies a given
+    float by the specified multiplier.
 
     Args:
-        k (str): The string to include in the tuple.
-        v (Union[int, float]): The number to square and
-        include in the tuple.
+        multiplier (float): The multiplier value.
 
     Returns:
-        Tuple[str, float]: A tuple containing the string
-        k and the square of the number v.
+        Callable[[float], float]: A function that
+        takes a float as input and
+        returns the product of the input and the multiplier.
     """
-    return (k, float(v ** 2))
+    def multiplier_function(value: float) -> float:
+        """
+        Multiplies the given value by the preset multiplier.
+
+        Args:
+            value (float): The value to be multiplied.
+
+        Returns:
+            float: The result of the multiplication.
+        """
+        return value * multiplier
+
+    return multiplier_function
