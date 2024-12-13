@@ -1,4 +1,8 @@
 // deletes all documents with name="Holberton school" in the collection school
-db.school.deleteMany(
-    {name: "Holberton school"},
-)
+db = db.getSiblingDB("my_db"); // Replace "my_db" with the database name provided
+
+// Delete documents where name="Holberton school"
+var result = db.school.deleteMany({ name: "Holberton school" });
+
+// Print the result
+printjson(result);
